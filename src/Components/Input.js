@@ -1,27 +1,23 @@
-import Form from "react-bootstrap/Form";
-import Styles from "./Input.css";
-import Button from "./Button";
+import React from "react";
+import Card from "./Card.js";
+import classes from "./Input.module.css";
+import "./Input.module.css";
 
-const Input = (props) => {
+const AddUser = (props) => {
+  const addUserHandler = (event) => {
+    event.preventDefault();
+  };
   return (
-    <Form>
-      <Form.Group className="user-input" controlId="formUserInput">
-        <Form.Label className="form-label">Username</Form.Label>
-        <Form.Control type="username" placeholder="Enter username" />
-        {/* <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text> */}
-      </Form.Group>
-
-      <Form.Group className="user-input" controlId="formUserInput">
-        <Form.Label>Age(Years)</Form.Label>
-        <Form.Control type="age" placeholder="Age" />
-      </Form.Group>
-      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group> */}
-    </Form>
+    <Card className={classes.input}>
+      <form className="input" onSubmit={addUserHandler}>
+        <label htmlFor="username">Username</label>
+        <input id="username" type="text" />
+        <label htmlFor="age">Age(Years)</label>
+        <input id="age" type="number" />
+        <button type="submit">AddUser</button>
+      </form>
+    </Card>
   );
 };
 
-export default Input;
+export default AddUser;

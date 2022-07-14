@@ -1,11 +1,10 @@
 import React from "react";
-
-import Input from "./Components/Input";
+import AddUser from "./Components/Input";
 
 function App() {
   return (
     <div>
-      <Input />
+      <AddUser />
     </div>
   );
 }

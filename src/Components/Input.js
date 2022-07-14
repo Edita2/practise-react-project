@@ -4,6 +4,7 @@ import classes from "./Input.module.css";
 import "./Input.module.css";
 import Button from "./Button";
 import { useState } from "react";
+import UsersList from "./UsersList.js";
 
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
@@ -11,15 +12,16 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    setEnteredUsername("");
-    setEnteredAge("");
 
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       return;
     }
-    if (enteredAge < 0) {
+    if (+enteredAge < 0) {
       return;
     }
+    props.onAddUser(enteredUsername, enteredAge);
+    setEnteredUsername("");
+    setEnteredAge("");
   };
 
   const usernameChangeHandler = (event) => {

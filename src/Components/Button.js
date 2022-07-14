@@ -1,10 +1,16 @@
-import Button from "react-bootstrap/Button";
+import React from "react";
+import classes from "./Button.module.css";
 
-const ButtonAddUser = (props) => {
+const Button = (props) => {
   return (
-    <Button variant="primary" type="addUser">
-      Add user
-    </Button>
+    <button
+      className={classes.button}
+      type={"props.type || 'button"}
+      onClick={props.onClick}
+    >
+      {props.children}
+      AddUser
+    </button>
   );
 };
 
